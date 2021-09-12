@@ -3,5 +3,5 @@
 <br>
 Files in this repository mainly focuses on what I have learned from online courses, google, books and etc.
 Hopefully oneday these traces and histories help me to build up a robust knowledge base.
-Keep up!
+Keep it up!
 
