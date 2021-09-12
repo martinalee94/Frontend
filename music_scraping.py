@@ -19,3 +19,4 @@ for one in allMusic:
     rank=int(rankInfo.split()[0])
     title=titleInfo.strip()
     print(rank,'/ '+ title +' - '+ artInfo)
+    db.music.insert_one({'rank':rank,'title':title,'artist':artInfo}) #Creates table and data in local(mongoDB)
