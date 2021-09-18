@@ -1,4 +1,4 @@
-# Markdown Instructions
+# How to use markdown syntax?
 Since I just started managing github io pages on my own, I found that most of posts on io pages was written with markdown syntax.  
 I guess I have to know markdown syntax in order to read or write posts and also hopefully it would be helpful somehow oneday.  
 Markdown syntax is pretty similar with HTML but Markdown is much easier and simpler. 
