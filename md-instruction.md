@@ -96,36 +96,99 @@ Markdown syntax is pretty similar with HTML but Markdown is much easier and simp
 <br>
 
 
-# 6. Link
+
+## 6. Link
 ```
+<Syntax in detail>
+
 [Google](http://www.google.com "Here is hover message")
 Google www.google.com; /*without bracket*/
 Google <www.google.com>; /*with bracket*/
 
-[1. Headers 헤더](#1-headers-헤더)
-[2. Emphasis 강조](#2-emphasis-강조)
-[3. Blockquotes 인용](#3-blockquotes-인용)
+[1. Header](#-1-header)
+[4. Table](#-4-table)
+
 
 ```
 
-[Google](http://www.google.com "Here is hover message")  
+
 Google www.google.com;  
 Google <www.google.com>;  
-My mail <jinkyukim.dev@gmail.com>
+[Google](http://www.google.com "Here is hover message")  
 
-[1. Headers](#1-headers)
-[4. Table](##-4-table)
-[6. Link](##-6-link)
-
-
+[Document top](#-markdown-instructions)
+<br>
+<br>
 
 
+## 7. Code
+```
+<Syntax in detail>
+
+/* without '|' in the beginning */
+|  ```
+|  print(hello)
+|  ```
+
+| ~~~python    /*Describe which language*/
+| print(hello)
+| ~~~
+```
+
+```
+print(hello)
+```
+
+```python
+print(hello)
+for x in range(0,10):
+  print(x)
+```
+<br>
+<br>
 
 
 
+## 8. CheckBox
+```
+<Syntax in detail>
+
+- [x] check 'x' /* space[x]space   Space before and after must!*/
+- [ ] check 'O'
+-[] without space bar. what happen?
+
+```
+
+- [x] check 'x'
+- [ ] check 'O'  
+-[] without space bar. what happen?
+<br>
+<br>
 
 
+## 9. Emoji
+Check out millions kinds of emoji on this website.  
+__Emoji__:point_right: www.emoji-cheat-sheet.com
 
-유형1(`설명어`를 클릭하면 URL로 이동) : [TheoryDB 블로그](https://theorydb.github.io "마우스를 올려놓으면 말풍선이 나옵니다.")  
-유형2(URL 보여주고 `자동연결`) : <https://theorydb.github.io>  
-유형3(동일 파일 내 `문단 이동`) : [동일파일 내 문단 이동](#markdown의-반드시-알아야-하는-문법)  
+```
+<Syntax in detail>
+
+:sweat_drops:
+:family:
+:sunny:
+```
+:sweat_drops:
+:family:
+:sunny:
+<br>
+<br>
+
+## 10. Image
+```
+<Syntax in detail>
+
+/* Html */
+<img src="https://images.unsplash.com/photo-1631861721222-560d535b84c4?ixid=
+MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" width="300" height="200"> 
+```
+<img src="https://images.unsplash.com/photo-1631861721222-560d535b84c4?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMnx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" width="300" height="200"> 
