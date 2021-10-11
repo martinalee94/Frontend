@@ -12,6 +12,7 @@ const Contents = () => {
             const res = await axios.get("https://api.covid19api.com/total/dayone/country/KR");
             makeData(res.data);
         }
+
         const makeData = (items)=>{
             const arr = items.reduce((acc,cur) => {
                 const currentDate = new Date(cur.Date);
@@ -20,11 +21,11 @@ const Contents = () => {
                 const date = currentDate.getDate();
                 const confirmed = cur.Confirmed;
                 const active = cur.Active;
-                const death = cur.Death;
+                const death = cur.Deaths;
                 const recovered  = cur.Recovered;
                 
 
-                const findItem =  acc.find(a=> a.year === year&& a.month ===month)
+                const findItem =  acc.find(a=> a.year === year && a.month === month)
 
                 if(!findItem){
                     acc.push({year, month, date, confirmed, active, death, recovered})
@@ -58,7 +59,7 @@ const Contents = () => {
                     {
                         label:'월별 격리자',
                         borderColor:'blue',
-                        fill:false,
+                        fill: false,
                         data: arr.map(a=>a.active)
                     }
                 ]
@@ -69,8 +70,8 @@ const Contents = () => {
                 datasets:[
                     {
                         label:'누적 확진, 해제, 사망 비율',
-                        backgroundColor: ['blue','yellow','green'],
-                        borderColor: ['blue','yellow','green'],
+                        backgroundColor: ['#ff3d67','#059bff','#ffc233'],
+                        borderColor: ['#ff3d67','#059bff','#ffc233'],
                         fill:false,
                         data: [last.confirmed, last.recovered, last.death]
                     }
@@ -78,24 +79,36 @@ const Contents = () => {
             })
         }
         fetchEvents();
-    })
+    },[])
+
+
+    const option1 = {
+        plugins:{
+            title:{display:true, text:'누적 확진자 추이', fontSize:16},
+            legend:{display:true, position:"bottom"}
+        }
+    };
+    const option2 = {
+        plugins:{
+            title:{display:true, text:'월별 격리자 현황', fontSize:16},
+            legend:{display:true, position:"bottom"}
+        }
+    };
+    const option3 = {
+        plugins:{
+            title:{display:true, text:`누적 확진, 격리 해제, 사망 비율 (${new Date().getFullYear()}년 ${new Date().getMonth()+1}월)`, fontSize:16},
+            legend:{display:true, position:"bottom"}
+        }
+    };
+
     return (
         <section>
           <h2>국내 코로나 현황</h2>  
           <div className="contents">
               <div>
-                  <Bar data={confirmedData} options={
-                      {title:{display:true, text:'누적 확진자 추이', fontSize:16}},
-                      {legend:{display:true, position:"bottom"}}
-                   } />
-                  <Line data={quarantinedData} options={
-                      {title:{display:true, text:'월별 격리자 현황', fontSize:16}},
-                      {legend:{display:true, position:"bottom"}}
-                   } />
-                  <Doughnut data={comparedData} options={
-                      {title:{display:true, text:`누적, 확진, 해제, 사망 ${new Date().getMonth()+1}`, fontSize:16}},
-                      {legend:{display:true, position:"bottom"}}
-                   } />
+                  <Bar data={confirmedData} options={option1} />
+                  <Line data={quarantinedData} options={option2} />
+                  <Doughnut data={comparedData} options={option3} />
 
               </div>
 
