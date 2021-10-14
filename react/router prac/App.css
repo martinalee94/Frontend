@@ -1,0 +1,17 @@
+.App{
+  width:50vw;
+}
+.nav li{
+  list-style: none;
+  font-size: 20px;
+  border-bottom:grey solid 1px;
+  display:inline-block;
+  margin: 0 3px;
+  width:30%;
+  text-align:center;
+}
+.active{
+  color:salmon;
+  font-weight:bold;
+}
+
