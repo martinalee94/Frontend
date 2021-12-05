@@ -2,9 +2,12 @@
   <div class='menu'>
     <a v-for="(m,i) in menus" :key="i">{{m}}</a>
   </div>
-  <div v-for="p in products" :key="p">
+  <div v-for="(p, i) in products" :key="i">
     <h4>{{p}}</h4>
     <p>70 만원</p>
+    <button @click="increase(i)">신고</button>
+    <span>신고 수: {{reportSum[i]}}</span>
+
   </div>
 
 </template>
@@ -17,6 +20,12 @@ export default {
     return {
       menus : ['Home', 'Products', 'About'],
       products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
+      reportSum : [0, 0, 0],
+    }
+  },
+  methods:{
+    increase(i){
+      this.reportSum[i] += 1 //data를 가져올때는 this.~~
     }
   },
   components: {
