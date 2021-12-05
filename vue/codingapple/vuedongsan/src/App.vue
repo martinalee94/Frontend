@@ -1,9 +1,18 @@
 <template>
+  <div class="black-bg" v-if="modal == true">
+    <div class='white-bg'>
+        <h4>상세페이지</h4>
+        <p>상세 페이지 내용</p>
+        <button @click='modal = false'>닫기</button>
+    </div>
+  </div>
   <div class='menu'>
     <a v-for="(m,i) in menus" :key="i">{{m}}</a>
   </div>
+
   <div v-for="(p, i) in products" :key="i">
-    <h4>{{p}}</h4>
+    <img :src="'./assets/room' + i + '.jpg'" class='room-img' alt="방이미지">
+    <h4 @click='modal = true'>{{p}}</h4>
     <p>70 만원</p>
     <button @click="increase(i)">신고</button>
     <span>신고 수: {{reportSum[i]}}</span>
@@ -21,6 +30,8 @@ export default {
       menus : ['Home', 'Products', 'About'],
       products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
       reportSum : [0, 0, 0],
+      modal: false, //false close,true open modal status 
+
     }
   },
   methods:{
@@ -34,6 +45,26 @@ export default {
 </script>
 
 <style>
+body{
+  margin:0;
+}
+div{
+  box-sizing:border-box;
+}
+.black-bg{
+  width: 100%;
+  height:100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  padding:20px;
+}
+.white-bg{
+  width:100%;
+  background: white;
+  border-radius: 8px;
+  padding:20px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -49,5 +80,9 @@ export default {
 .menu a{
   color:white;
   padding: 10px;
+}
+.room-img{
+  margin-top:40px;
+  width:100%;
 }
 </style>
